@@ -36,36 +36,36 @@ sequenceDiagram
     participant DB as PostgreSQL Database
 
     Note over User, API: 1. Login / OAuth2 Flow
-    User->>UI: Submit credentials / Google OAuth2
+    User->>UI: Submit credentials or Google OAuth2
     UI->>API: POST /api/v1/auth/login (credentials: include)
-    API->>DB: Validate user & generate RefreshTokenEntity
-    API-->>Browser: Set-Cookie: refreshToken=...; HttpOnly; Path=/api/v1/auth; SameSite=Lax
+    API->>DB: Validate user and generate RefreshTokenEntity
+    API-->>Browser: Set-Cookie: refreshToken (HttpOnly, Path=/api/v1/auth, SameSite=Lax)
     API-->>UI: Response JSON: { accessToken, user }
     UI->>Redux: setCredentials({ accessToken, user })
 
     Note over User, API: 2. Authenticated API Request
-    UI->>API: GET /api/v1/users/profile (Header: "Bearer <accessToken>")
-    API->>API: JwtAuthFilter validates JWT signature & claims
+    UI->>API: GET /api/v1/users/profile (Header: Bearer token)
+    API->>API: JwtAuthFilter validates JWT signature and claims
     API-->>UI: 200 OK (User Data)
 
     Note over User, API: 3. Page Reload (Silent App Bootstrap)
     User->>UI: Refreshes browser (F5) - Redux memory is wiped
     UI->>API: POST /api/v1/auth/refresh (Browser automatically attaches HttpOnly cookie)
     API->>DB: Verify refresh token (not expired, not revoked)
-    API->>DB: Revoke old token & generate new rotated token
-    API-->>Browser: Set-Cookie: refreshToken=<new_token>; HttpOnly; Path=/api/v1/auth
-    API-->>UI: Response JSON: { accessToken: <new_token>, user }
+    API->>DB: Revoke old token and generate new rotated token
+    API-->>Browser: Set-Cookie: new refreshToken (HttpOnly, Path=/api/v1/auth)
+    API-->>UI: Response JSON: { accessToken, user }
     UI->>Redux: setCredentials({ accessToken, user })
 
     Note over User, API: 4. Mid-Session Token Expiration (Mutex Re-Auth)
-    UI->>API: GET /api/v1/users (expired token)
+    UI->>API: GET /api/v1/users (with expired token)
     API-->>UI: 401 Unauthorized
     Note over UI: Mutex locks out concurrent queries
     UI->>API: POST /api/v1/auth/refresh (Cookie attached)
-    API-->>Browser: Set-Cookie: refreshToken=<rotated_token>
-    API-->>UI: New accessToken
-    UI->>Redux: Update accessToken
-    Note over UI: Retries original GET /api/v1/users seamlessly
+    API-->>Browser: Set-Cookie: rotated refreshToken
+    API-->>UI: Response JSON: { new accessToken }
+    UI->>Redux: Update in-memory accessToken
+    Note over UI: Retries original GET request seamlessly
     UI->>API: GET /api/v1/users (with new accessToken)
     API-->>UI: 200 OK
 ```
