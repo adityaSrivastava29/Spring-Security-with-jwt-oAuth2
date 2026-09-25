@@ -107,4 +107,4 @@ We adhere to the [Conventional Commits](https://www.conventionalcommits.org/) sp
 
 ## 6. Security Vulnerability Reporting
 
-If you discover a security vulnerability, **please do not open a public GitHub issue**. Instead, report it privately to the maintainers at `aditya.srivastava@example.com` or via GitHub Security Advisories.
+If you discover a security vulnerability, **please do not open a public GitHub issue**. Instead, report it privately to the maintainers at [EMAIL_ADDRESS] or via GitHub Security Advisories.
