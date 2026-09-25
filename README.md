@@ -139,6 +139,7 @@ Frontend will launch on `http://localhost:5174` (or `5173`).
 ## Documentation & Learning Notes
 
 - 📘 [**Spring Security 6, JWT & OAuth2 Learning Notes**](docs/SPRING_SECURITY_JWT_OAUTH2_NOTES.md) — Comprehensive guide covering filter chains, stateless security, token rotation, and security hardening.
+- 🍪 [**HttpOnly Cookie & UI Validation Flow Guide**](docs/HTTP_ONLY_COOKIE_AUTH_FLOW.md) — Deep dive into how HttpOnly cookies are set, validated, and managed across the React UI (RTK Query) and Spring Boot.
 - 🤝 [**Contributing Guidelines**](CONTRIBUTING.md) — Coding conventions, Git branch standards, and PR workflows.
 
 ---
