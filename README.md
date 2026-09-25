@@ -5,6 +5,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB.svg)](https://react.dev/)
 [![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-RTK%20Query-764ABC.svg)](https://redux-toolkit.js.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38B2AC.svg)](https://tailwindcss.com/)
+[![GitHub Stars](https://img.shields.io/github/stars/adityaSrivastava29/Spring-Security-with-jwt-oAuth2?style=flat&logo=github&color=ffd700)](https://github.com/adityaSrivastava29/Spring-Security-with-jwt-oAuth2/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A production-grade, full-stack reference implementation demonstrating **Stateless JWT Authentication**, **Google OAuth2 Social Login**, **HttpOnly Refresh Token Rotation with Mutex Protection**, **Granular Role-Based Access Control (RBAC)**, and **Multi-Tier B2B/B2C Account Separation**.
@@ -139,6 +140,14 @@ Frontend will launch on `http://localhost:5174` (or `5173`).
 
 - 📘 [**Spring Security 6, JWT & OAuth2 Learning Notes**](docs/SPRING_SECURITY_JWT_OAUTH2_NOTES.md) — Comprehensive guide covering filter chains, stateless security, token rotation, and security hardening.
 - 🤝 [**Contributing Guidelines**](CONTRIBUTING.md) — Coding conventions, Git branch standards, and PR workflows.
+
+---
+
+## 🌟 Support & Star
+
+If this project helped you understand **Spring Security 6**, **JWT**, **OAuth2**, or **Granular RBAC**, please consider giving it a **Star** on GitHub! It helps other developers discover this learning blueprint.
+
+[![Star on GitHub](https://img.shields.io/github/stars/adityaSrivastava29/Spring-Security-with-jwt-oAuth2?style=social)](https://github.com/adityaSrivastava29/Spring-Security-with-jwt-oAuth2)
 
 ---
 
